@@ -1,0 +1,142 @@
+/* Login.css */
+/* General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Container Styling */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #3b82f6, #9333ea);
+  padding: 20px;
+}
+
+.auth-box {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Animation for form load */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+label {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+  font-size: 16px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #9333ea;
+  background-color: #ffffff;
+  box-shadow: 0 0 5px rgba(147, 51, 234, 0.5);
+  outline: none;
+}
+
+/* Button Styling */
+button.btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #9333ea;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button.btn:hover {
+  background-color: #7e22ce;
+}
+
+/* Link Styling */
+p a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+p a:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+/* Message Box Styling */
+.message-box {
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 6px;
+  background-color: #f8d7da; /* Light red background */
+  border: 1px solid #d9534f;
+  color: #d9534f; /* Red color for errors */
+  animation: slideDown 0.5s ease-out;
+}
+
+.message-box.success {
+  color: #5bc0de; /* Blue color for success messages */
+  background-color: #d9edf7; /* Light blue background */
+  border: 1px solid #5bc0de;
+}
+
+/* Slide Down Animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .auth-box {
+    padding: 20px;
+    width: 100%;
+  }
+}
+
+  

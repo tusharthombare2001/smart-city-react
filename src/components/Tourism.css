@@ -1,0 +1,162 @@
+/* General styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #444;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2C3E50; /* Darker heading color */
+  font-size: 2.5em;
+  letter-spacing: 2px;
+}
+
+button {
+  background: linear-gradient(45deg, #FF6B6B, #FFD93D); /* Gradient button background */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 10px 0;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #FFD93D, #FF6B6B); /* Reverse gradient on hover */
+}
+
+/* Dropdown styles */
+select {
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 2px solid #FF6B6B;
+  background-color: #F8F9FA;
+  color: #444;
+  transition: border-color 0.3s;
+}
+
+select:hover {
+  border-color: #FFD93D;
+}
+
+/* Tourist spot container */
+.tourist-spot-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.tourist-spot {
+  perspective: 1000px; /* Required for the 3D effect */
+  margin: 20px;
+  width: 320px; /* Adjust card width */
+  transition: transform 0.3s ease-in-out;
+}
+
+.tourist-spot:hover {
+  transform: scale(1.05);
+}
+
+/* Card styles */
+.card {
+  position: relative;
+  width: 100%;
+  height: 420px; /* Set height for card */
+  transition: transform 0.6s;
+  transform-style: preserve-3d; /* Required for 3D effect */
+  cursor: pointer;
+}
+
+/* Front and back styles */
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hide the back side */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.card-front {
+  background: linear-gradient(135deg, #5C258D, #4389A2); /* Front card gradient background */
+  color: white;
+}
+
+.card-back {
+  background: linear-gradient(135deg, #FF512F, #DD2476); /* Back card gradient background */
+  transform: rotateY(180deg); /* Flip the back side */
+}
+
+/* Card flip on hover */
+.tourist-spot:hover .card {
+  transform: rotateY(180deg);
+}
+
+/* Image styles */
+.card img {
+  max-width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.tourist-spot:hover .card img {
+  transform: scale(1.1);
+}
+
+.card h5 {
+  margin: 10px 0;
+  color: #F9F9F9;
+  font-size: 1.2em;
+}
+
+/* City information styles */
+h3 {
+  margin-top: 40px;
+  font-size: 2em;
+  color: #4A4A4A;
+}
+
+h4 {
+  margin-top: 20px;
+  font-size: 1.5em;
+  color: #676767;
+}
+
+.tourist-spot {
+  margin-bottom: 20px;
+}
+
+.tourist-spot img {
+  width: 100%; /* Responsive image */
+  border-radius: 5px;
+}
+
+/* Button on card back */
+.card-back button {
+  background-color: #FF6B6B;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.card-back button:hover {
+  background-color: #FF3B3B;
+}
