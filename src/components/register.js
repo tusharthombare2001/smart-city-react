@@ -10,7 +10,7 @@ const Register = ({ onRegister }) => {
     email: ''
   });
 
-  const navigate = useNavigate(); // To navigate programmatically after registration
+  const navigate = useNavigate(); 
 
   const handleChange = (e) => {
     setUserData({
@@ -23,11 +23,11 @@ const Register = ({ onRegister }) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:8080/api/auth/register', userData);
-      alert(response.data);  // Show success message
-      // Navigate to login page after successful registration
+      alert(response.data); 
+     
       navigate('/login');
     } catch (error) {
-      alert("Error: " + error.response.data);  // Show error message
+      alert("Error: " + error.response.data);  
     }
   };
 
@@ -69,9 +69,15 @@ const Register = ({ onRegister }) => {
           <button type="submit" className="btn">Register</button>
         </form>
         <p>Already have an account? <Link to="/login">Login here</Link></p>
+
+ 
+
+
       </div>
     </div>
   );
 };
 
 export default Register;
+
+

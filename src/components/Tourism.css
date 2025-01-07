@@ -1,162 +1,165 @@
-/* General styles */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: 'Poppins', sans-serif;
-  color: #444;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    margin: 0; /* Remove any margin */
+    padding: 0; /* Remove any padding */
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #2C3E50; /* Darker heading color */
-  font-size: 2.5em;
-  letter-spacing: 2px;
+.background1, .background2 {
+    min-height: 100vh; /* Full height for each background */
+    width: 100%;
+    background-size: cover; /* Ensures image covers the whole section */
+    background-position: center center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
 }
 
+.background1 {
+    background-image: url('maharastra.jpg');
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Ensures it covers the full viewport height */
+    margin: 0; /* Removes any margin */
+    padding: 0; /* Removes any padding */
+}
+
+/* Specific styling for the h1 inside .background1 */
+.background1 h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the element */
+    font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+    text-align: center; /* Ensure the text is centered */
+    width: 100%; /* Ensure it adapts to the screen size */
+}
+
+/* Adjustments for responsiveness */
+@media (max-width: 768px) {
+    .background1 h1 {
+        font-size: 2.2em;
+    }
+}
+
+
+.background2 {
+    background-image: url('maharastra.jpg'); /* Second background image */
+    background-attachment: scroll; /* Allows scrolling */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white; /* Text color for visibility */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in width/height calculations */
+}
+
+
+
+
+/* Button styling */
 button {
-  background: linear-gradient(45deg, #FF6B6B, #FFD93D); /* Gradient button background */
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  margin: 10px 0;
-  font-size: 16px;
-  transition: background 0.3s ease;
+    background-color: #5C258D; /* Button color */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background: linear-gradient(45deg, #FFD93D, #FF6B6B); /* Reverse gradient on hover */
+    background-color: #4389A2;
 }
 
-/* Dropdown styles */
-select {
-  padding: 10px;
-  margin-top: 20px;
-  font-size: 16px;
-  border-radius: 10px;
-  border: 2px solid #FF6B6B;
-  background-color: #F8F9FA;
-  color: #444;
-  transition: border-color 0.3s;
+/* Form styling for Add Destination */
+.add-destination-form {
+    background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent background */
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-select:hover {
-  border-color: #FFD93D;
+/* Destination list container */
+.destination-list {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.85); /* Transparent background for list */
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Shadow effect */
 }
 
-/* Tourist spot container */
-.tourist-spot-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+/* Loading and error messages */
+.loading, .error {
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Enhance visibility */
 }
 
-.tourist-spot {
-  perspective: 1000px; /* Required for the 3D effect */
-  margin: 20px;
-  width: 320px; /* Adjust card width */
-  transition: transform 0.3s ease-in-out;
+/* City Selector styling */
+.city-selector {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.85); /* Slight transparency */
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.tourist-spot:hover {
-  transform: scale(1.05);
+/* Logout button */
+button.logout {
+    background-color: #FF512F;
+    margin-top: 30px;
 }
 
-/* Card styles */
-.card {
-  position: relative;
-  width: 100%;
-  height: 420px; /* Set height for card */
-  transition: transform 0.6s;
-  transform-style: preserve-3d; /* Required for 3D effect */
-  cursor: pointer;
+button.logout:hover {
+    background-color: #DD2476;
 }
 
-/* Front and back styles */
-.card-front, .card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden; /* Hide the back side */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
-}
+/* Media query for responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
 
-.card-front {
-  background: linear-gradient(135deg, #5C258D, #4389A2); /* Front card gradient background */
-  color: white;
-}
+    h1 {
+        font-size: 2.2em;
+    }
 
-.card-back {
-  background: linear-gradient(135deg, #FF512F, #DD2476); /* Back card gradient background */
-  transform: rotateY(180deg); /* Flip the back side */
-}
+    button {
+        width: 100%;
+    }
 
-/* Card flip on hover */
-.tourist-spot:hover .card {
-  transform: rotateY(180deg);
-}
-
-/* Image styles */
-.card img {
-  max-width: 100%;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-}
-
-.tourist-spot:hover .card img {
-  transform: scale(1.1);
-}
-
-.card h5 {
-  margin: 10px 0;
-  color: #F9F9F9;
-  font-size: 1.2em;
-}
-
-/* City information styles */
-h3 {
-  margin-top: 40px;
-  font-size: 2em;
-  color: #4A4A4A;
-}
-
-h4 {
-  margin-top: 20px;
-  font-size: 1.5em;
-  color: #676767;
-}
-
-.tourist-spot {
-  margin-bottom: 20px;
-}
-
-.tourist-spot img {
-  width: 100%; /* Responsive image */
-  border-radius: 5px;
-}
-
-/* Button on card back */
-.card-back button {
-  background-color: #FF6B6B;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  margin-top: 10px;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
-
-.card-back button:hover {
-  background-color: #FF3B3B;
+    .add-destination-form, .city-selector, .destination-list {
+        width: 100%;
+    }
 }

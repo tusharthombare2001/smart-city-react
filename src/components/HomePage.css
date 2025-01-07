@@ -1,20 +1,22 @@
 /* General styles */
 
 /* Styling for the logo */
-/* Styling for the logo */
 .logo {
     display: flex;
     align-items: center;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .logo-image {
-    width: 40px;  /* Adjust size for a smaller logo */
-    height: 40px; /* Ensure it's the same width and height */
-    border-radius: 50%;  /* Make the image circular */
+    width: 40px;  
+    height: 40px;
+    border-radius: 50%; 
     margin-right: 10px;  /* Add space between the logo and the heading */
     object-fit: cover;   /* Ensure the logo fits nicely within the circle */
 }
-
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -29,7 +31,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: linear-gradient(135deg, #3b82f6, #9333ea);
+    background-color: rgb(127, 137, 243);  /* Set background to white */
 }
 
 /* Navbar Styling */
@@ -72,6 +74,8 @@ body {
 .navbar ul li a:hover {
     color: #ffcc00;
     text-shadow: 0 2px 5px rgba(255, 255, 255, 0.6);
+    border-bottom: 2px solid #ffcc00;
+    transition: border-bottom 0.3s ease-in-out;
 }
 
 /* Main Content Styling */
@@ -79,7 +83,7 @@ main {
     flex: 1;
     padding: 5rem 2rem 2rem; /* Extra top padding for fixed navbar */
     text-align: center;
-    color: white;
+    color: rgb(56, 44, 44);
 }
 
 /* Intro Section */
@@ -130,7 +134,6 @@ main {
         text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 0.9);
     }
 }
-
 
 /* New color-changing effect for h2 */
 @keyframes colorChange {
@@ -229,4 +232,15 @@ footer {
         height: 30px;
         margin: 0 8px;
     }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s, transform 1s;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }

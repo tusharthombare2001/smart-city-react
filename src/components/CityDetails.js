@@ -1,15 +1,14 @@
+// CityDetails.js remains the same
+// city detail is which when i click the explore button on hte image it will render this code 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import './CityDetails.css'; // CSS for card styles
-
 
 function CityDetails() {
   const { cityName } = useParams();
   const [cityInfo, setCityInfo] = useState({ history: '', touristSpots: [], highlightedSpots: [] });
 
   useEffect(() => {
-    // Fetch city information when the component loads
     axios.get(`/api/tourism/cities/${cityName}`)
       .then(response => {
         setCityInfo(response.data);
@@ -59,5 +58,3 @@ function CityDetails() {
 }
 
 export default CityDetails;
-
-

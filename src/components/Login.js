@@ -1,28 +1,34 @@
-
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'; // Import lock icon
 import './Auth.css';
 import './Login.css';
-import { toast, ToastContainer } from 'react-toastify';  // Import toast and ToastContainer
-import 'react-toastify/dist/ReactToastify.css';  // Import default CSS for toast
+import { toast, ToastContainer } from 'react-toastify';  
+import 'react-toastify/dist/ReactToastify.css';  
 
 const Login = ({ onLogin }) => {
   const [loginData, setLoginData] = useState({
     username: '',
     password: ''
   });
-
-
-  const [message, setMessage] = useState(''); // State to hold the login message
-
-  const navigate = useNavigate(); // To navigate programmatically after login
+  
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const navigate = useNavigate(); 
 
   const handleChange = (e) => {
-    setLoginData({
-      ...loginData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    setLoginData(prevData => ({
+      ...prevData,
+      [name]: value
+    }));
+
+    // Automatically toggle password visibility based on whether the input is empty or not
+    if (name === 'password') {
+      setShowPassword(value.length > 0); // Show password if there's content
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -30,58 +36,43 @@ const Login = ({ onLogin }) => {
     try {
       const response = await axios.post('http://localhost:8080/api/auth/login', loginData);
 
+      toast.success("🎉 Welcome Back, Login Successful!", {
+        className: 'custom-toast',  
+        position: "bottom-center",    
+        autoClose: 3000,            
+        hideProgressBar: false,     
+        closeOnClick: true,         
+        pauseOnHover: false,        
+        draggable: true,            
+      });
 
-        // Customized success toast
-      // Customized success toast
-    toast.success("🎉 Welcome Back, Login Successful!", {
-      className: 'custom-toast',  // Apply custom class
-      position: "bottom-center",    // Customize position
-      autoClose: 3000,            // Close after 4 seconds
-      hideProgressBar: false,     // Show progress bar
-      closeOnClick: true,         // Close when clicked
-      pauseOnHover: false,        // No pause on hover
-      draggable: true,            // Draggable toast
-      progress: undefined,
-      style: {
-        backgroundColor: '#4CAF50',  // Green background
-        color: '#fff',                // White text
-        fontWeight: 'bold',           // Bold text
-      },
-    });
+      onLogin();
+      setTimeout(() => {
+        navigate('/'); // Navigate after successful login
+      }, 2000); 
 
-       // Call onLogin to update authentication status
-       onLogin();
-
-       setTimeout(() => {
-        navigate('/');
-      }, 2000); // Adjust the delay as needed (in milliseconds)
-
-
-      } catch (error) {
-        // If login fails (e.g., 401 Unauthorized), display error toast
-        if (error.response && error.response.status === 401) {
-          const errorMessage = error.response.data; 
-          toast.error("Invalid username or password. Please try again.", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-          });
-        } else {
-          // Handle other errors
-          toast.error("An unexpected error occurred.", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-          });
-        }
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        toast.error("Invalid username or password. Please try again.", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      } else {
+        toast.error("An unexpected error occurred.", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
       }
-    };
+    }
+  };
 
   return (
     <div className="auth-container">
@@ -90,23 +81,32 @@ const Login = ({ onLogin }) => {
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Username:</label>
-            <input
-              type="text"
-              name="username"
-              value={loginData.username}
-              onChange={handleChange}
-              required
-            />
+            <div className="input-container">
+              <FontAwesomeIcon icon={faUser} className="input-icon" />
+              <input
+                type="text"
+                name="username"
+                value={loginData.username}
+                onChange={handleChange}
+                required
+              />
+            </div>
           </div>
           <div className="form-group">
             <label>Password:</label>
-            <input
-              type="password"
-              name="password"
-              value={loginData.password}
-              onChange={handleChange}
-              required
-            />
+            <div className="input-container">
+              <FontAwesomeIcon 
+                icon={faLock} // Use lock icon instead
+                className="input-icon" // Reuse the same styling class for consistency
+              />
+              <input
+                type={showPassword ? "text" : "password"} // Change input type based on state
+                name="password"
+                value={loginData.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
           </div>
           <button type="submit" className="btn">Login</button>
         </form>
@@ -117,4 +117,4 @@ const Login = ({ onLogin }) => {
   );
 };
 
-export default Login;
+export default Login;  

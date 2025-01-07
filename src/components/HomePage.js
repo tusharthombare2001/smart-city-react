@@ -16,15 +16,20 @@ const HomePage = () => {
                 <nav>
                     <ul>
                         <li><a href="#student">Student</a></li>
-                        <li><a href="#hospital">Hospital</a></li>
+                        <li><Link to="/hospital">Hospital</Link></li>
                         <li><a href="#history">History</a></li>
                         <li><Link to="/tourism">Tourism</Link></li>
-                        <li><Link to="/tourism/:id/feedback">Feedback</Link></li> {/* Adjust this as needed */}
+                        <li><Link to="/tourism/:id/feedback">Feedback</Link></li> 
                     </ul>
                 </nav>
+
+
+
+
+
             </header>
 
-            {/* Main Content */}
+            
             <main>
                 <section className="intro">
                     <h2>Welcome to the Smart City Project</h2>
@@ -32,7 +37,6 @@ const HomePage = () => {
                 </section>
             </main>
 
-            {/* Footer */}
             <footer>
     <div className="footer-content">
         {/* About Smart City */}
@@ -67,6 +71,11 @@ const HomePage = () => {
         <p>&copy; 2024 Smart City Project - All rights reserved.</p>
         <p>Privacy Policy | Terms of Service</p>
     </div>
+
+
+
+
+
 </footer>
         </div>
     );

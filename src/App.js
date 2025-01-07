@@ -15,6 +15,7 @@ import DestinationDetail from './components/DestinationDetail';
 import CityDetails from './components/CityDetails';
 import FeedbackForm from './components/FeedbackForm';
 import FeedbackList from './components/FeedbackList';
+
  
 
 
@@ -52,10 +53,8 @@ function App() {
           <Route path="/" element={<PrivateRoute element={<HomePage />} />} />
           <Route path="/student" element={<PrivateRoute element={<Student />} />} />
           <Route path="/hospital" element={<PrivateRoute element={<Hospital />} />} />
+        
 
-
-            {/* Corrected the name to TouristDestinationList */}
-          {/* <Route path="/tourism" element={<PrivateRoute element={<TouristDestinationList />} />} /> */}
 
             
           {/* Add the feedback form and list */}
@@ -63,6 +62,7 @@ function App() {
 
            {/* Updated tourism route */}
            <Route path="/tourism" element={<PrivateRoute element={<Tourism />} />} />
+           
            <Route path="/city/:cityName" element={<CityDetails />} /> {/* New route */}
 
            {/* Feedback list route with destinationId passed to FeedbackList */}
