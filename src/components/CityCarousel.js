@@ -6,23 +6,23 @@ import Slider from 'react-slick';
 import { useNavigate } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './CityCarousel.css'; // Create custom styles for the carousel
+import './CityCarousel.css'; 
 
 const CityCarousel = ({ cities }) => {
-  const navigate = useNavigate(); // Use navigate from react-router
+  const navigate = useNavigate(); 
 
-  // Define handleExplore function
+ 
   const handleExplore = (cityName) => {
-    navigate(`/city/${cityName}`); // Navigate to city-specific route
+    navigate(`/city/${cityName}`); 
   };
 
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3, // Display 3 slides at a time
+    slidesToShow: 3, 
     slidesToScroll: 1,
-    centerMode: true, // Center the slides
+    centerMode: true, 
     centerPadding: '0',
   };
 

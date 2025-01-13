@@ -12,16 +12,16 @@ html, body {
     flex-direction: column;
     align-items: center;
     width: 100vw;
-    margin: 0; /* Remove any margin */
-    padding: 0; /* Remove any padding */
+    margin: 0; 
+    padding: 0; 
 }
 
 .background1, .background2 {
-    min-height: 100vh; /* Full height for each background */
+    min-height: 100vh; 
     width: 100%;
-    background-size: cover; /* Ensures image covers the whole section */
-    background-position: center center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the background image */
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat; 
 }
 
 .background1 {
@@ -30,28 +30,28 @@ html, body {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    height: 100vh; /* Ensures it covers the full viewport height */
-    margin: 0; /* Removes any margin */
-    padding: 0; /* Removes any padding */
+    height: 100vh; 
+    margin: 0; 
+    padding: 0; 
 }
 
-/* Specific styling for the h1 inside .background1 */
+
 .background1 h1 {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Center the element */
+    transform: translate(-50%, -50%); 
     font-size: 3em;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     font-family: 'Nunito', sans-serif;
     color: white;
-    margin: 0; /* Remove margin */
-    padding: 0; /* Remove padding */
-    text-align: center; /* Ensure the text is centered */
-    width: 100%; /* Ensure it adapts to the screen size */
+    margin: 0; 
+    padding: 0; 
+    text-align: center; 
+    width: 100%; 
 }
 
-/* Adjustments for responsiveness */
+
 @media (max-width: 768px) {
     .background1 h1 {
         font-size: 2.2em;
@@ -62,6 +62,7 @@ html, body {
 .background2 {
     background-image: url('maharastra.jpg'); /* Second background image */
     background-attachment: scroll; /* Allows scrolling */
+    position: relative; 
 }
 
 .content {
@@ -70,53 +71,52 @@ html, body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white; /* Text color for visibility */
+    color: white; 
     padding: 20px;
-    box-sizing: border-box; /* Include padding in width/height calculations */
+    box-sizing: border-box; 
+    
 }
 
-
-
-
-/* Button styling */
-button {
-    background-color: #5C258D; /* Button color */
+button.logout {
+    position: absolute; 
+    bottom: 20px; 
+    right: 20px;
+    background-color: #FF512F;
     color: white;
     padding: 12px 24px;
     border: none;
     border-radius: 5px;
-    font-size: 1.2em;
+    font-size: 1em;
     cursor: pointer;
-    margin: 10px 0;
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #4389A2;
+button.logout:hover {
+    background-color: #DD2476;
 }
 
-/* Form styling for Add Destination */
+
 .add-destination-form {
-    background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent background */
+    background-color: rgba(255, 255, 255, 0.85); 
     padding: 30px;
     border-radius: 10px;
     width: 100%;
     max-width: 600px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); 
 }
 
-/* Destination list container */
+
 .destination-list {
     margin-top: 20px;
-    background-color: rgba(255, 255, 255, 0.85); /* Transparent background for list */
+    background-color: rgba(255, 255, 255, 0.85); 
     padding: 20px;
     border-radius: 10px;
     width: 100%;
     max-width: 800px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); 
 }
 
-/* Loading and error messages */
+
 .loading, .error {
     font-size: 1.5em;
     margin-top: 20px;
